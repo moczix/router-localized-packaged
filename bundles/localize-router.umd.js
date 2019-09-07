@@ -202,62 +202,57 @@
     }
 
     /**
-     * Guard to make sure we have single initialization of forRoot
-     * @type {InjectionToken<LocalizeRouterModule>}
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /** @type {?} */
     var LOCALIZE_ROUTER_FORROOT_GUARD = new core.InjectionToken('LOCALIZE_ROUTER_FORROOT_GUARD');
-    /**
-     * Static provider for keeping track of routes
-     * @type {InjectionToken<Routes[]>}
-     */
+    /** @type {?} */
     var RAW_ROUTES = new core.InjectionToken('RAW_ROUTES');
+    /** @enum {string} */
+    var CacheMechanismEnum = {
+        LocalStorage: 'LocalStorage',
+        Cookie: 'Cookie',
+    };
     /**
      * Namespace for fail proof access of CacheMechanism
-     */
-
-    (function (CacheMechanism) {
-        CacheMechanism.LocalStorage = 'LocalStorage';
-        CacheMechanism.Cookie = 'Cookie';
-    })(exports.CacheMechanism || (exports.CacheMechanism = {}));
-    /**
-     * Boolean to indicate whether to use cached language value
-     * @type {InjectionToken<boolean>}
+     * @type {?}
      */
     var USE_CACHED_LANG = new core.InjectionToken('USE_CACHED_LANG');
-    /**
-     * Cache mechanism type
-     * @type {InjectionToken<CacheMechanism>}
-     */
+    /** @type {?} */
     var CACHE_MECHANISM = new core.InjectionToken('CACHE_MECHANISM');
-    /**
-     * Cache name
-     * @type {InjectionToken<string>}
-     */
+    /** @type {?} */
     var CACHE_NAME = new core.InjectionToken('CACHE_NAME');
-    /**
-     * Function for calculating default language
-     * @type {InjectionToken<DefaultLanguageFunction>}
-     */
+    /** @type {?} */
     var DEFAULT_LANG_FUNCTION = new core.InjectionToken('DEFAULT_LANG_FUNCTION');
-    /**
-     * Boolean to indicate whether prefix should be set for single language scenarios
-     * @type {InjectionToken<boolean>}
-     */
+    /** @type {?} */
     var ALWAYS_SET_PREFIX = new core.InjectionToken('ALWAYS_SET_PREFIX');
+    /**
+     * Config interface for LocalizeRouter
+     * @record
+     */
+    function LocalizeRouterConfig() { }
+    if (false) {
+        /** @type {?|undefined} */
+        LocalizeRouterConfig.prototype.parser;
+        /** @type {?|undefined} */
+        LocalizeRouterConfig.prototype.useCachedLang;
+        /** @type {?|undefined} */
+        LocalizeRouterConfig.prototype.cacheMechanism;
+        /** @type {?|undefined} */
+        LocalizeRouterConfig.prototype.cacheName;
+        /** @type {?|undefined} */
+        LocalizeRouterConfig.prototype.defaultLangFunction;
+        /** @type {?|undefined} */
+        LocalizeRouterConfig.prototype.alwaysSetPrefix;
+    }
+    /** @type {?} */
     var LOCALIZE_CACHE_NAME = 'LOCALIZE_DEFAULT_LANGUAGE';
     var LocalizeRouterSettings = /** @class */ (function () {
-        /**
-         * Settings for localize router
-         * @param {boolean} useCachedLang
-         * @param {boolean} alwaysSetPrefix
-         * @param {CacheMechanism} cacheMechanism
-         * @param {string} cacheName
-         * @param {DefaultLanguageFunction} defaultLangFunction
-         */
         function LocalizeRouterSettings(useCachedLang, alwaysSetPrefix, cacheMechanism, cacheName, defaultLangFunction) {
             if (useCachedLang === void 0) { useCachedLang = true; }
             if (alwaysSetPrefix === void 0) { alwaysSetPrefix = true; }
-            if (cacheMechanism === void 0) { cacheMechanism = exports.CacheMechanism.LocalStorage; }
+            if (cacheMechanism === void 0) { cacheMechanism = CacheMechanismEnum.LocalStorage; }
             if (cacheName === void 0) { cacheName = LOCALIZE_CACHE_NAME; }
             if (defaultLangFunction === void 0) { defaultLangFunction = void 0; }
             this.useCachedLang = useCachedLang;
@@ -266,57 +261,71 @@
             this.cacheName = cacheName;
             this.defaultLangFunction = defaultLangFunction;
         }
-        /** @nocollapse */ LocalizeRouterSettings.ngInjectableDef = core.ɵɵdefineInjectable({ token: LocalizeRouterSettings, factory: function LocalizeRouterSettings_Factory(t) { return new (t || LocalizeRouterSettings)(core.ɵɵinject(USE_CACHED_LANG), core.ɵɵinject(ALWAYS_SET_PREFIX), core.ɵɵinject(CACHE_MECHANISM), core.ɵɵinject(CACHE_NAME), core.ɵɵinject(DEFAULT_LANG_FUNCTION)); }, providedIn: null });
+        LocalizeRouterSettings.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        LocalizeRouterSettings.ctorParameters = function () { return [
+            { type: Boolean, decorators: [{ type: core.Inject, args: [USE_CACHED_LANG,] }] },
+            { type: Boolean, decorators: [{ type: core.Inject, args: [ALWAYS_SET_PREFIX,] }] },
+            { type: undefined, decorators: [{ type: core.Inject, args: [CACHE_MECHANISM,] }] },
+            { type: String, decorators: [{ type: core.Inject, args: [CACHE_NAME,] }] },
+            { type: undefined, decorators: [{ type: core.Inject, args: [DEFAULT_LANG_FUNCTION,] }] }
+        ]; };
         return LocalizeRouterSettings;
     }());
-    /*@__PURE__*/ core.ɵsetClassMetadata(LocalizeRouterSettings, [{
-            type: core.Injectable
-        }], function () { return [{ type: undefined, decorators: [{
-                    type: core.Inject,
-                    args: [USE_CACHED_LANG]
-                }] }, { type: undefined, decorators: [{
-                    type: core.Inject,
-                    args: [ALWAYS_SET_PREFIX]
-                }] }, { type: exports.CacheMechanism, decorators: [{
-                    type: core.Inject,
-                    args: [CACHE_MECHANISM]
-                }] }, { type: undefined, decorators: [{
-                    type: core.Inject,
-                    args: [CACHE_NAME]
-                }] }, { type: undefined, decorators: [{
-                    type: core.Inject,
-                    args: [DEFAULT_LANG_FUNCTION]
-                }] }]; }, null);
+    if (false) {
+        /** @type {?} */
+        LocalizeRouterSettings.prototype.useCachedLang;
+        /** @type {?} */
+        LocalizeRouterSettings.prototype.alwaysSetPrefix;
+        /** @type {?} */
+        LocalizeRouterSettings.prototype.cacheMechanism;
+        /** @type {?} */
+        LocalizeRouterSettings.prototype.cacheName;
+        /** @type {?} */
+        LocalizeRouterSettings.prototype.defaultLangFunction;
+    }
 
-    var COOKIE_EXPIRY = 30; // 1 month
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var COOKIE_EXPIRY = 30;
+    // 1 month
     /**
      * Abstract class for parsing localization
+     * @abstract
      */
     var LocalizeParser = /** @class */ (function () {
-        /**
-         * Loader constructor
-         * @param translate
-         * @param location
-         * @param settings
-         */
         function LocalizeParser(translate, location, settings) {
             this.translate = translate;
             this.location = location;
             this.settings = settings;
         }
         /**
-         * Initialize language and routes
-         * @param routes
-         * @returns {Promise<any>}
+         * @protected
+         * @param {?} routes
+         * @return {?}
          */
-        LocalizeParser.prototype.init = function (routes) {
+        LocalizeParser.prototype.init = /**
+         * @protected
+         * @param {?} routes
+         * @return {?}
+         */
+        function (routes) {
             var _a;
             this.routes = routes;
             if (!this.locales || !this.locales.length) {
                 return Promise.resolve();
             }
-            /** detect current language */
+            /**
+             * detect current language
+             * @type {?}
+             */
             var locationLang = this.getLocationLang();
+            /** @type {?} */
             var browserLang = this._getBrowserLang();
             if (this.settings.defaultLangFunction) {
                 this.defaultLang = this.settings.defaultLangFunction(this.locales, this._cachedLang, browserLang);
@@ -324,14 +333,24 @@
             else {
                 this.defaultLang = this._cachedLang || browserLang || this.locales[0];
             }
+            /** @type {?} */
             var selectedLanguage = locationLang || this.defaultLang;
             this.translate.setDefaultLang(this.defaultLang);
+            /** @type {?} */
             var children = [];
             /** if set prefix is enforced */
             if (this.settings.alwaysSetPrefix) {
+                /** @type {?} */
                 var baseRoute = { path: '', redirectTo: this.defaultLang, pathMatch: 'full' };
-                /** extract potential wildcard route */
-                var wildcardIndex = routes.findIndex(function (route) { return route.path === '**'; });
+                /**
+                 * extract potential wildcard route
+                 * @type {?}
+                 */
+                var wildcardIndex = routes.findIndex((/**
+                 * @param {?} route
+                 * @return {?}
+                 */
+                function (route) { return route.path === '**'; }));
                 if (wildcardIndex !== -1) {
                     this._wildcardRoute = routes.splice(wildcardIndex, 1)[0];
                 }
@@ -364,30 +383,64 @@
             /** translate routes */
             return this.translateRoutes(selectedLanguage).toPromise();
         };
-        LocalizeParser.prototype.initChildRoutes = function (routes) {
+        /**
+         * @param {?} routes
+         * @return {?}
+         */
+        LocalizeParser.prototype.initChildRoutes = /**
+         * @param {?} routes
+         * @return {?}
+         */
+        function (routes) {
             this._translateRouteTree(routes);
             return routes;
         };
-        LocalizeParser.prototype.mutateRouterRootRoute = function (currentLanguage, previousLanguage, routes) {
+        /**
+         * @param {?} currentLanguage
+         * @param {?} previousLanguage
+         * @param {?} routes
+         * @return {?}
+         */
+        LocalizeParser.prototype.mutateRouterRootRoute = /**
+         * @param {?} currentLanguage
+         * @param {?} previousLanguage
+         * @param {?} routes
+         * @return {?}
+         */
+        function (currentLanguage, previousLanguage, routes) {
+            /** @type {?} */
             var previousTranslatedLanguage = this.settings.alwaysSetPrefix || previousLanguage !== this.defaultLang ?
                 previousLanguage : '';
+            /** @type {?} */
             var currentTranslatedLanguage = this.settings.alwaysSetPrefix || currentLanguage !== this.defaultLang ?
                 currentLanguage : '';
-            var baseRoute = routes.find(function (route) { return route.path === previousTranslatedLanguage; });
+            /** @type {?} */
+            var baseRoute = routes.find((/**
+             * @param {?} route
+             * @return {?}
+             */
+            function (route) { return route.path === previousTranslatedLanguage; }));
             if (baseRoute) {
                 baseRoute.path = currentTranslatedLanguage;
             }
         };
         /**
-         * Translate routes to selected language
-         * @param language
-         * @returns {Promise<any>}
+         * @param {?} language
+         * @return {?}
          */
-        LocalizeParser.prototype.translateRoutes = function (language) {
+        LocalizeParser.prototype.translateRoutes = /**
+         * @param {?} language
+         * @return {?}
+         */
+        function (language) {
             var _this = this;
             this.setRootLanguage(language);
             return this.translate.use(language)
-                .pipe(operators.map(function (translations) {
+                .pipe(operators.map((/**
+             * @param {?} translations
+             * @return {?}
+             */
+            function (translations) {
                 _this._translationObject = translations;
                 _this.currentLang = language;
                 if (_this._languageRoute) {
@@ -400,9 +453,19 @@
                 else {
                     _this._translateRouteTree(_this.routes);
                 }
-            }));
+            })));
         };
-        LocalizeParser.prototype.setRootLanguage = function (language) {
+        /**
+         * @private
+         * @param {?} language
+         * @return {?}
+         */
+        LocalizeParser.prototype.setRootLanguage = /**
+         * @private
+         * @param {?} language
+         * @return {?}
+         */
+        function (language) {
             this._cachedLang = language;
             if (this._languageRoute) {
                 this._languageRoute.path = this.settings.alwaysSetPrefix || language !== this.defaultLang ?
@@ -410,13 +473,22 @@
             }
         };
         /**
-         * Translate the route node and recursively call for all it's children
-         * @param routes
          * @private
+         * @param {?} routes
+         * @return {?}
          */
-        LocalizeParser.prototype._translateRouteTree = function (routes) {
+        LocalizeParser.prototype._translateRouteTree = /**
+         * @private
+         * @param {?} routes
+         * @return {?}
+         */
+        function (routes) {
             var _this = this;
-            routes.forEach(function (route) {
+            routes.forEach((/**
+             * @param {?} route
+             * @return {?}
+             */
+            function (route) {
                 if (route.path && route.path !== '**') {
                     _this._translateProperty(route, 'path');
                 }
@@ -426,62 +498,86 @@
                 if (route.children) {
                     _this._translateRouteTree(route.children);
                 }
-                if (route.loadChildren && route._loadedConfig) {
-                    _this._translateRouteTree(route._loadedConfig.routes);
+                if (route.loadChildren && ((/** @type {?} */ (route)))._loadedConfig) {
+                    _this._translateRouteTree(((/** @type {?} */ (route)))._loadedConfig.routes);
                 }
-            });
+            }));
         };
         /**
-         * Translate property
-         * If first time translation then add original to route data object
-         * @param route
-         * @param property
-         * @param prefixLang
          * @private
+         * @param {?} route
+         * @param {?} property
+         * @param {?=} prefixLang
+         * @return {?}
          */
-        LocalizeParser.prototype._translateProperty = function (route, property, prefixLang) {
+        LocalizeParser.prototype._translateProperty = /**
+         * @private
+         * @param {?} route
+         * @param {?} property
+         * @param {?=} prefixLang
+         * @return {?}
+         */
+        function (route, property, prefixLang) {
             // set property to data if not there yet
+            /** @type {?} */
             var routeData = route.data = route.data || {};
             if (!routeData.localizeRouter) {
                 routeData.localizeRouter = {};
             }
             if (!routeData.localizeRouter[property]) {
-                routeData.localizeRouter[property] = route[property];
+                routeData.localizeRouter[property] = ((/** @type {?} */ (route)))[property];
             }
+            /** @type {?} */
             var result = this.translateRoute(routeData.localizeRouter[property]);
-            route[property] = prefixLang ? "/" + this.urlPrefix + result : result;
+            ((/** @type {?} */ (route)))[property] = prefixLang ? "/" + this.urlPrefix + result : result;
         };
         Object.defineProperty(LocalizeParser.prototype, "urlPrefix", {
-            get: function () {
+            get: /**
+             * @return {?}
+             */
+            function () {
                 return this.settings.alwaysSetPrefix || this.currentLang !== this.defaultLang ? this.currentLang : '';
             },
             enumerable: true,
             configurable: true
         });
         /**
-         * Translate route and return observable
-         * @param path
-         * @returns {string}
+         * @param {?} path
+         * @return {?}
          */
-        LocalizeParser.prototype.translateRoute = function (path) {
+        LocalizeParser.prototype.translateRoute = /**
+         * @param {?} path
+         * @return {?}
+         */
+        function (path) {
             var _this = this;
+            /** @type {?} */
             var queryParts = path.split('?');
             if (queryParts.length > 2) {
                 throw 'There should be only one query parameter block in the URL';
             }
+            /** @type {?} */
             var pathSegments = queryParts[0].split('/');
             /** collect observables  */
             return pathSegments
-                .map(function (part) { return part.length ? _this.translateText(part) : part; })
+                .map((/**
+             * @param {?} part
+             * @return {?}
+             */
+            function (part) { return part.length ? _this.translateText(part) : part; }))
                 .join('/') +
                 (queryParts.length > 1 ? "?" + queryParts[1] : '');
         };
         /**
-         * Get language from url
-         * @returns {string}
-         * @private
+         * @param {?=} url
+         * @return {?}
          */
-        LocalizeParser.prototype.getLocationLang = function (url) {
+        LocalizeParser.prototype.getLocationLang = /**
+         * @param {?=} url
+         * @return {?}
+         */
+        function (url) {
+            /** @type {?} */
             var pathSlices = (url || this.location.path() || '')
                 .split('#')[0]
                 .split('?')[0]
@@ -495,43 +591,45 @@
             return null;
         };
         /**
-         * Get user's language set in the browser
-         * @returns {string}
          * @private
+         * @return {?}
          */
-        LocalizeParser.prototype._getBrowserLang = function () {
+        LocalizeParser.prototype._getBrowserLang = /**
+         * @private
+         * @return {?}
+         */
+        function () {
             return this._returnIfInLocales(this.translate.getBrowserLang());
         };
         Object.defineProperty(LocalizeParser.prototype, "_cachedLang", {
-            /**
-             * Get language from local storage or cookie
-             * @returns {string}
+            get: /**
              * @private
+             * @return {?}
              */
-            get: function () {
+            function () {
                 if (!this.settings.useCachedLang) {
                     return;
                 }
-                if (this.settings.cacheMechanism === exports.CacheMechanism.LocalStorage) {
+                if (this.settings.cacheMechanism === CacheMechanismEnum.LocalStorage) {
                     return this._cacheWithLocalStorage();
                 }
-                if (this.settings.cacheMechanism === exports.CacheMechanism.Cookie) {
+                if (this.settings.cacheMechanism === CacheMechanismEnum.Cookie) {
                     return this._cacheWithCookies();
                 }
             },
-            /**
-             * Save language to local storage or cookie
-             * @param value
+            set: /**
              * @private
+             * @param {?} value
+             * @return {?}
              */
-            set: function (value) {
+            function (value) {
                 if (!this.settings.useCachedLang) {
                     return;
                 }
-                if (this.settings.cacheMechanism === exports.CacheMechanism.LocalStorage) {
+                if (this.settings.cacheMechanism === CacheMechanismEnum.LocalStorage) {
                     this._cacheWithLocalStorage(value);
                 }
-                if (this.settings.cacheMechanism === exports.CacheMechanism.Cookie) {
+                if (this.settings.cacheMechanism === CacheMechanismEnum.Cookie) {
                     this._cacheWithCookies(value);
                 }
             },
@@ -539,12 +637,16 @@
             configurable: true
         });
         /**
-         * Cache value to local storage
-         * @param value
-         * @returns {string}
          * @private
+         * @param {?=} value
+         * @return {?}
          */
-        LocalizeParser.prototype._cacheWithLocalStorage = function (value) {
+        LocalizeParser.prototype._cacheWithLocalStorage = /**
+         * @private
+         * @param {?=} value
+         * @return {?}
+         */
+        function (value) {
             if (typeof window === 'undefined' || typeof window.localStorage === 'undefined') {
                 return;
             }
@@ -561,23 +663,32 @@
             }
         };
         /**
-         * Cache value via cookies
-         * @param value
          * @private
+         * @param {?=} value
+         * @return {?}
          */
-        LocalizeParser.prototype._cacheWithCookies = function (value) {
+        LocalizeParser.prototype._cacheWithCookies = /**
+         * @private
+         * @param {?=} value
+         * @return {?}
+         */
+        function (value) {
             if (typeof document === 'undefined' || typeof document.cookie === 'undefined') {
                 return;
             }
             try {
+                /** @type {?} */
                 var name_1 = encodeURIComponent(this.settings.cacheName);
                 if (value) {
+                    /** @type {?} */
                     var d = new Date();
                     d.setTime(d.getTime() + COOKIE_EXPIRY * 86400000); // * days
                     document.cookie = name_1 + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString();
                     return;
                 }
+                /** @type {?} */
                 var regexp = new RegExp('(?:^' + name_1 + '|;\\s*' + name_1 + ')=(.*?)(?:;|$)', 'g');
+                /** @type {?} */
                 var result = regexp.exec(document.cookie);
                 return decodeURIComponent(result[1]);
             }
@@ -586,27 +697,38 @@
             }
         };
         /**
-         * Check if value exists in locales list
-         * @param value
-         * @returns {any}
          * @private
+         * @param {?} value
+         * @return {?}
          */
-        LocalizeParser.prototype._returnIfInLocales = function (value) {
+        LocalizeParser.prototype._returnIfInLocales = /**
+         * @private
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
             if (value && this.locales.indexOf(value) !== -1) {
                 return value;
             }
             return null;
         };
         /**
-         * Get translated value
-         * @param key
-         * @returns {any}
+         * @private
+         * @param {?} key
+         * @return {?}
          */
-        LocalizeParser.prototype.translateText = function (key) {
+        LocalizeParser.prototype.translateText = /**
+         * @private
+         * @param {?} key
+         * @return {?}
+         */
+        function (key) {
             if (!this._translationObject) {
                 return key;
             }
+            /** @type {?} */
             var prefixedKey = this.prefix + key;
+            /** @type {?} */
             var res = this.translate.getParsedResult(this._translationObject, prefixedKey);
             // ignore non-translated text like 'ROUTES.home'
             if (res === prefixedKey) {
@@ -614,29 +736,73 @@
             }
             return res || key;
         };
-        LocalizeParser = __decorate([
-            __param(0, core.Inject(core$1.TranslateService)),
-            __param(1, core.Inject(common.Location)),
-            __param(2, core.Inject(LocalizeRouterSettings)),
-            __metadata("design:paramtypes", [core$1.TranslateService,
-                common.Location,
-                LocalizeRouterSettings])
-        ], LocalizeParser);
+        /** @nocollapse */
+        LocalizeParser.ctorParameters = function () { return [
+            { type: core$1.TranslateService, decorators: [{ type: core.Inject, args: [core$1.TranslateService,] }] },
+            { type: common.Location, decorators: [{ type: core.Inject, args: [common.Location,] }] },
+            { type: LocalizeRouterSettings, decorators: [{ type: core.Inject, args: [LocalizeRouterSettings,] }] }
+        ]; };
         return LocalizeParser;
     }());
+    if (false) {
+        /** @type {?} */
+        LocalizeParser.prototype.locales;
+        /** @type {?} */
+        LocalizeParser.prototype.currentLang;
+        /** @type {?} */
+        LocalizeParser.prototype.routes;
+        /** @type {?} */
+        LocalizeParser.prototype.defaultLang;
+        /**
+         * @type {?}
+         * @protected
+         */
+        LocalizeParser.prototype.prefix;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeParser.prototype._translationObject;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeParser.prototype._wildcardRoute;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeParser.prototype._languageRoute;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeParser.prototype.translate;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeParser.prototype.location;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeParser.prototype.settings;
+        /**
+         * @abstract
+         * @param {?} routes
+         * @return {?}
+         */
+        LocalizeParser.prototype.load = function (routes) { };
+    }
     /**
      * Manually set configuration
      */
-    var ManualParserLoader = /** @class */ (function (_super) {
+    var   /**
+     * Manually set configuration
+     */
+    ManualParserLoader = /** @class */ (function (_super) {
         __extends(ManualParserLoader, _super);
-        /**
-         * CTOR
-         * @param translate
-         * @param location
-         * @param settings
-         * @param locales
-         * @param prefix
-         */
         function ManualParserLoader(translate, location, settings, locales, prefix) {
             if (locales === void 0) { locales = ['en']; }
             if (prefix === void 0) { prefix = 'ROUTES.'; }
@@ -646,15 +812,22 @@
             return _this;
         }
         /**
-         * Initialize or append routes
-         * @param routes
-         * @returns {Promise<any>}
+         * @param {?} routes
+         * @return {?}
          */
-        ManualParserLoader.prototype.load = function (routes) {
+        ManualParserLoader.prototype.load = /**
+         * @param {?} routes
+         * @return {?}
+         */
+        function (routes) {
             var _this = this;
-            return new Promise(function (resolve) {
+            return new Promise((/**
+             * @param {?} resolve
+             * @return {?}
+             */
+            function (resolve) {
                 _this.init(routes).then(resolve);
-            });
+            }));
         };
         return ManualParserLoader;
     }(LocalizeParser));
@@ -663,26 +836,36 @@
         function DummyLocalizeParser() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        DummyLocalizeParser.prototype.load = function (routes) {
+        /**
+         * @param {?} routes
+         * @return {?}
+         */
+        DummyLocalizeParser.prototype.load = /**
+         * @param {?} routes
+         * @return {?}
+         */
+        function (routes) {
             var _this = this;
-            return new Promise(function (resolve) {
+            return new Promise((/**
+             * @param {?} resolve
+             * @return {?}
+             */
+            function (resolve) {
                 _this.init(routes).then(resolve);
-            });
+            }));
         };
         return DummyLocalizeParser;
     }(LocalizeParser));
 
     /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
      * Localization service
      * modifyRoutes
      */
     var LocalizeRouterService = /** @class */ (function () {
-        /**
-         * CTOR
-         * @param parser
-         * @param settings
-         * @param router
-         */
         function LocalizeRouterService(parser, settings, router) {
             this.parser = parser;
             this.settings = settings;
@@ -692,43 +875,79 @@
         /**
          * Start up the service
          */
-        LocalizeRouterService.prototype.init = function () {
+        /**
+         * Start up the service
+         * @return {?}
+         */
+        LocalizeRouterService.prototype.init = /**
+         * Start up the service
+         * @return {?}
+         */
+        function () {
             this.router.resetConfig(this.parser.routes);
             // subscribe to router events
             this.router.events
-                .pipe(operators.filter(function (event) { return event instanceof router.NavigationStart; }), operators.pairwise())
+                .pipe(operators.filter((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) { return event instanceof router.NavigationStart; })), operators.pairwise())
                 .subscribe(this._routeChanged());
         };
         /**
-         * Change language and navigate to translated route
-         * @param lang
+         * @param {?} lang
+         * @return {?}
          */
-        LocalizeRouterService.prototype.changeLanguage = function (lang) {
+        LocalizeRouterService.prototype.changeLanguage = /**
+         * @param {?} lang
+         * @return {?}
+         */
+        function (lang) {
             var _this = this;
             if (lang !== this.parser.currentLang) {
+                /** @type {?} */
                 var rootSnapshot_1 = this.router.routerState.snapshot.root;
                 this.parser
                     .translateRoutes(lang)
                     .pipe(
                 // set new routes to router
-                operators.tap(function () { return _this.router.resetConfig(_this.parser.routes); }))
-                    .subscribe(function () {
-                    var urlSegments = _this.traverseSnapshot(rootSnapshot_1, true).filter(function (path, i) {
+                operators.tap((/**
+                 * @return {?}
+                 */
+                function () { return _this.router.resetConfig(_this.parser.routes); })))
+                    .subscribe((/**
+                 * @return {?}
+                 */
+                function () {
+                    /** @type {?} */
+                    var urlSegments = _this.traverseSnapshot(rootSnapshot_1, true).filter((/**
+                     * @param {?} path
+                     * @param {?} i
+                     * @return {?}
+                     */
+                    function (path, i) {
                         return !i || path; // filter out empty paths
-                    });
+                    }));
+                    /** @type {?} */
                     var navigationExtras = __assign({}, (rootSnapshot_1.queryParamMap.keys.length ? { queryParams: rootSnapshot_1.queryParams } : {}), (rootSnapshot_1.fragment ? { fragment: rootSnapshot_1.fragment } : {}));
                     // use navigate to keep extras unchanged
                     _this.router.navigate(urlSegments, navigationExtras);
-                });
+                }));
             }
         };
         /**
-         * Traverses through the tree to assemble new translated url
-         * @param snapshot
-         * @param isRoot
-         * @returns {string}
+         * @private
+         * @param {?} snapshot
+         * @param {?=} isRoot
+         * @return {?}
          */
-        LocalizeRouterService.prototype.traverseSnapshot = function (snapshot, isRoot) {
+        LocalizeRouterService.prototype.traverseSnapshot = /**
+         * @private
+         * @param {?} snapshot
+         * @param {?=} isRoot
+         * @return {?}
+         */
+        function (snapshot, isRoot) {
             var _this = this;
             if (isRoot === void 0) { isRoot = false; }
             if (isRoot) {
@@ -742,62 +961,108 @@
                     return __spread(this.traverseSnapshot(snapshot.firstChild.firstChild));
                 }
             }
+            /** @type {?} */
             var urlPart = this.parseSegmentValue(snapshot);
-            var outletChildren = snapshot.children.filter(function (child) { return child.outlet !== router.PRIMARY_OUTLET; });
-            var outlets = outletChildren.reduce(function (acc, cur) {
+            /** @type {?} */
+            var outletChildren = snapshot.children.filter((/**
+             * @param {?} child
+             * @return {?}
+             */
+            function (child) { return child.outlet !== router.PRIMARY_OUTLET; }));
+            /** @type {?} */
+            var outlets = outletChildren.reduce((/**
+             * @param {?} acc
+             * @param {?} cur
+             * @return {?}
+             */
+            function (acc, cur) {
                 var _a;
                 return ({
                     outlets: __assign({}, acc.outlets, (_a = {}, _a[cur.outlet] = _this.parseSegmentValue(cur), _a))
                 });
-            }, { outlets: {} });
-            var primaryChild = snapshot.children.find(function (child) { return child.outlet === router.PRIMARY_OUTLET; });
+            }), { outlets: {} });
+            /** @type {?} */
+            var primaryChild = snapshot.children.find((/**
+             * @param {?} child
+             * @return {?}
+             */
+            function (child) { return child.outlet === router.PRIMARY_OUTLET; }));
             return __spread([
                 urlPart
             ], (Object.keys(snapshot.params).length ? [snapshot.params] : []), (outletChildren.length ? [outlets] : []), (primaryChild ? this.traverseSnapshot(primaryChild) : []));
         };
         /**
-         * Extracts new segment value based on routeConfig and url
-         * @param snapshot
-         * @returns {string}
+         * @private
+         * @param {?} snapshot
+         * @return {?}
          */
-        LocalizeRouterService.prototype.parseSegmentValue = function (snapshot) {
+        LocalizeRouterService.prototype.parseSegmentValue = /**
+         * @private
+         * @param {?} snapshot
+         * @return {?}
+         */
+        function (snapshot) {
             var _this = this;
             if (snapshot.routeConfig) {
                 if (snapshot.routeConfig.path === '**') {
                     return this.parser.translateRoute(snapshot.url
-                        .filter(function (segment) { return segment.path; })
-                        .map(function (segment) { return segment.path; })
+                        .filter((/**
+                     * @param {?} segment
+                     * @return {?}
+                     */
+                    function (segment) { return segment.path; }))
+                        .map((/**
+                     * @param {?} segment
+                     * @return {?}
+                     */
+                    function (segment) { return segment.path; }))
                         .join('/'));
                 }
                 else if (snapshot.routeConfig.data) {
+                    /** @type {?} */
                     var subPathSegments = snapshot.routeConfig.data.localizeRouter.path.split('/');
                     return subPathSegments
-                        .map(function (s, i) { return (s.indexOf(':') === 0 ? snapshot.url[i].path : _this.parser.translateRoute(s)); })
+                        .map((/**
+                     * @param {?} s
+                     * @param {?} i
+                     * @return {?}
+                     */
+                    function (s, i) { return (s.indexOf(':') === 0 ? snapshot.url[i].path : _this.parser.translateRoute(s)); }))
                         .join('/');
                 }
             }
             return '';
         };
         /**
-         * Translate route to current language
-         * If new language is explicitly provided then replace language part in url with new language
-         * @param path
-         * @returns {string | any[]}
+         * @param {?} path
+         * @return {?}
          */
-        LocalizeRouterService.prototype.translateRoute = function (path) {
+        LocalizeRouterService.prototype.translateRoute = /**
+         * @param {?} path
+         * @return {?}
+         */
+        function (path) {
             var _this = this;
             // path is null (e.g. resetting auxiliary outlet)
             if (!path) {
                 return path;
             }
             if (typeof path === 'string') {
+                /** @type {?} */
                 var url = this.parser.translateRoute(path);
                 return !path.indexOf('/') ? "/" + this.parser.urlPrefix + url : url;
             }
             // it's an array
+            /** @type {?} */
             var result = [];
-            path.forEach(function (segment, index) {
+            ((/** @type {?} */ (path))).forEach((/**
+             * @param {?} segment
+             * @param {?} index
+             * @return {?}
+             */
+            function (segment, index) {
                 if (typeof segment === 'string') {
+                    /** @type {?} */
                     var res = _this.parser.translateRoute(segment);
                     if (!index && !segment.indexOf('/')) {
                         result.push("/" + _this.parser.urlPrefix + res);
@@ -809,6 +1074,7 @@
                 else {
                     // translate router outlets block
                     if (segment && segment.outlets) {
+                        /** @type {?} */
                         var outlets = {};
                         for (var key in segment.outlets) {
                             if (segment.outlets.hasOwnProperty(key)) {
@@ -821,19 +1087,28 @@
                         result.push(segment);
                     }
                 }
-            });
+            }));
             return result;
         };
         /**
-         * Event handler to react on route change
-         * @returns {(event:any)=>void}
          * @private
+         * @return {?}
          */
-        LocalizeRouterService.prototype._routeChanged = function () {
+        LocalizeRouterService.prototype._routeChanged = /**
+         * @private
+         * @return {?}
+         */
+        function () {
             var _this = this;
-            return function (_a) {
+            return (/**
+             * @param {?} __0
+             * @return {?}
+             */
+            function (_a) {
                 var _b = __read(_a, 2), previousEvent = _b[0], currentEvent = _b[1];
+                /** @type {?} */
                 var previousLang = _this.parser.getLocationLang(previousEvent.url) || _this.parser.defaultLang;
+                /** @type {?} */
                 var currentLang = _this.parser.getLocationLang(currentEvent.url) || _this.parser.defaultLang;
                 if (currentLang !== previousLang) {
                     // mutate router config directly to avoid getting out of sync
@@ -842,35 +1117,53 @@
                         .translateRoutes(currentLang)
                         .pipe(
                     // reset routes again once they are all translated
-                    operators.tap(function () { return _this.router.resetConfig(_this.parser.routes); }))
-                        .subscribe(function () {
+                    operators.tap((/**
+                     * @return {?}
+                     */
+                    function () { return _this.router.resetConfig(_this.parser.routes); })))
+                        .subscribe((/**
+                     * @return {?}
+                     */
+                    function () {
                         // Fire route change event
                         _this.routerEvents.next(currentLang);
-                    });
+                    }));
                 }
-            };
+            });
         };
-        /** @nocollapse */ LocalizeRouterService.ngInjectableDef = core.ɵɵdefineInjectable({ token: LocalizeRouterService, factory: function LocalizeRouterService_Factory(t) { return new (t || LocalizeRouterService)(core.ɵɵinject(LocalizeParser), core.ɵɵinject(LocalizeRouterSettings), core.ɵɵinject(router.Router)); }, providedIn: null });
+        LocalizeRouterService.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        LocalizeRouterService.ctorParameters = function () { return [
+            { type: LocalizeParser, decorators: [{ type: core.Inject, args: [LocalizeParser,] }] },
+            { type: LocalizeRouterSettings, decorators: [{ type: core.Inject, args: [LocalizeRouterSettings,] }] },
+            { type: router.Router, decorators: [{ type: core.Inject, args: [router.Router,] }] }
+        ]; };
         return LocalizeRouterService;
     }());
-    /*@__PURE__*/ core.ɵsetClassMetadata(LocalizeRouterService, [{
-            type: core.Injectable
-        }], function () { return [{ type: LocalizeParser, decorators: [{
-                    type: core.Inject,
-                    args: [LocalizeParser]
-                }] }, { type: LocalizeRouterSettings, decorators: [{
-                    type: core.Inject,
-                    args: [LocalizeRouterSettings]
-                }] }, { type: router.Router, decorators: [{
-                    type: core.Inject,
-                    args: [router.Router]
-                }] }]; }, null);
+    if (false) {
+        /** @type {?} */
+        LocalizeRouterService.prototype.routerEvents;
+        /** @type {?} */
+        LocalizeRouterService.prototype.parser;
+        /** @type {?} */
+        LocalizeRouterService.prototype.settings;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterService.prototype.router;
+    }
 
     /**
-     * Compare if two objects are same
-     * @param o1
-     * @param o2
-     * @returns {boolean}
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * @param {?} o1
+     * @param {?} o2
+     * @return {?}
      */
     function equals(o1, o2) {
         if (o1 === o2) {
@@ -882,7 +1175,16 @@
         if (o1 !== o1 && o2 !== o2) {
             return true; // NaN === NaN
         }
-        var t1 = typeof o1, t2 = typeof o2, length, key, keySet;
+        /** @type {?} */
+        var t1 = typeof o1;
+        /** @type {?} */
+        var t2 = typeof o2;
+        /** @type {?} */
+        var length;
+        /** @type {?} */
+        var key;
+        /** @type {?} */
+        var keySet;
         if (t1 === t2 && t1 === 'object') {
             if (Array.isArray(o1)) {
                 if (!Array.isArray(o2)) {
@@ -923,33 +1225,45 @@
         return false;
     }
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
     var VIEW_DESTROYED_STATE = 128;
     var LocalizeRouterPipe = /** @class */ (function () {
-        /**
-         * CTOR
-         * @param localize
-         * @param _ref
-         */
         function LocalizeRouterPipe(localize, _ref) {
             var _this = this;
             this.localize = localize;
             this._ref = _ref;
             this.value = '';
-            this.subscription = this.localize.routerEvents.subscribe(function () {
+            this.subscription = this.localize.routerEvents.subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this.transform(_this.lastKey);
-            });
+            }));
         }
-        LocalizeRouterPipe.prototype.ngOnDestroy = function () {
+        /**
+         * @return {?}
+         */
+        LocalizeRouterPipe.prototype.ngOnDestroy = /**
+         * @return {?}
+         */
+        function () {
             if (this.subscription) {
                 this.subscription.unsubscribe();
             }
         };
         /**
-         * Transform current url to localized one
-         * @param query
-         * @returns {string | any[]}
+         * @param {?} query
+         * @return {?}
          */
-        LocalizeRouterPipe.prototype.transform = function (query) {
+        LocalizeRouterPipe.prototype.transform = /**
+         * @param {?} query
+         * @return {?}
+         */
+        function (query) {
             if (!query || query.length === 0 || !this.localize.parser.currentLang) {
                 return query;
             }
@@ -962,23 +1276,62 @@
             this.value = this.localize.translateRoute(query);
             this.lastKey = query;
             // if view is already destroyed, ignore firing change detection
-            if (this._ref._view.state & VIEW_DESTROYED_STATE) {
+            if (((/** @type {?} */ (this._ref)))._view.state & VIEW_DESTROYED_STATE) {
                 return this.value;
             }
             this._ref.detectChanges();
             return this.value;
         };
-        /** @nocollapse */ LocalizeRouterPipe.ngPipeDef = core.ɵɵdefinePipe({ name: "localize", type: LocalizeRouterPipe, factory: function LocalizeRouterPipe_Factory(t) { return new (t || LocalizeRouterPipe)(core.ɵɵdirectiveInject(LocalizeRouterService), core.ɵɵinjectPipeChangeDetectorRef()); }, pure: false });
+        LocalizeRouterPipe.decorators = [
+            { type: core.Pipe, args: [{
+                        name: 'localize',
+                        pure: false // required to update the value when the promise is resolved
+                    },] }
+        ];
+        /** @nocollapse */
+        LocalizeRouterPipe.ctorParameters = function () { return [
+            { type: LocalizeRouterService },
+            { type: core.ChangeDetectorRef }
+        ]; };
         return LocalizeRouterPipe;
     }());
-    /*@__PURE__*/ core.ɵsetClassMetadata(LocalizeRouterPipe, [{
-            type: core.Pipe,
-            args: [{
-                    name: 'localize',
-                    pure: false // required to update the value when the promise is resolved
-                }]
-        }], function () { return [{ type: LocalizeRouterService }, { type: core.ChangeDetectorRef }]; }, null);
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterPipe.prototype.value;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterPipe.prototype.lastKey;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterPipe.prototype.lastLanguage;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterPipe.prototype.subscription;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterPipe.prototype.localize;
+        /**
+         * @type {?}
+         * @private
+         */
+        LocalizeRouterPipe.prototype._ref;
+    }
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
     /**
      * Extension of SystemJsNgModuleLoader to enable localization of route on lazy load
      */
@@ -990,19 +1343,38 @@
             return _this;
         }
         /**
-         * Extend load with custom functionality
-         * @param {string} path
-         * @returns {Promise<NgModuleFactory<any>>}
+         * @param {?} path
+         * @return {?}
          */
-        LocalizeRouterConfigLoader.prototype.load = function (path) {
+        LocalizeRouterConfigLoader.prototype.load = /**
+         * @param {?} path
+         * @return {?}
+         */
+        function (path) {
             var _this = this;
-            return _super.prototype.load.call(this, path).then(function (factory) {
+            return _super.prototype.load.call(this, path).then((/**
+             * @param {?} factory
+             * @return {?}
+             */
+            function (factory) {
                 return {
                     moduleType: factory.moduleType,
-                    create: function (parentInjector) {
+                    create: (/**
+                     * @param {?} parentInjector
+                     * @return {?}
+                     */
+                    function (parentInjector) {
+                        /** @type {?} */
                         var module = factory.create(parentInjector);
+                        /** @type {?} */
                         var getMethod = module.injector.get.bind(module.injector);
-                        module.injector['get'] = function (token, notFoundValue) {
+                        module.injector['get'] = (/**
+                         * @param {?} token
+                         * @param {?} notFoundValue
+                         * @return {?}
+                         */
+                        function (token, notFoundValue) {
+                            /** @type {?} */
                             var getResult = getMethod(token, notFoundValue);
                             if (token === router.ROUTES) {
                                 // translate lazy routes
@@ -1011,65 +1383,107 @@
                             else {
                                 return getResult;
                             }
-                        };
+                        });
                         return module;
-                    }
+                    })
                 };
-            });
+            }));
         };
-        /** @nocollapse */ LocalizeRouterConfigLoader.ngInjectableDef = core.ɵɵdefineInjectable({ token: LocalizeRouterConfigLoader, factory: function LocalizeRouterConfigLoader_Factory(t) { return new (t || LocalizeRouterConfigLoader)(core.ɵɵinject(core.forwardRef(function () { return LocalizeParser; })), core.ɵɵinject(core.Compiler), core.ɵɵinject(core.SystemJsNgModuleLoaderConfig, 8)); }, providedIn: null });
+        LocalizeRouterConfigLoader.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        LocalizeRouterConfigLoader.ctorParameters = function () { return [
+            { type: LocalizeParser, decorators: [{ type: core.Inject, args: [core.forwardRef((/**
+                             * @return {?}
+                             */
+                            function () { return LocalizeParser; })),] }] },
+            { type: core.Compiler },
+            { type: core.SystemJsNgModuleLoaderConfig, decorators: [{ type: core.Optional }] }
+        ]; };
         return LocalizeRouterConfigLoader;
     }(core.SystemJsNgModuleLoader));
-    /*@__PURE__*/ core.ɵsetClassMetadata(LocalizeRouterConfigLoader, [{
-            type: core.Injectable
-        }], function () { return [{ type: LocalizeParser, decorators: [{
-                    type: core.Inject,
-                    args: [core.forwardRef(function () { return LocalizeParser; })]
-                }] }, { type: core.Compiler }, { type: core.SystemJsNgModuleLoaderConfig, decorators: [{
-                    type: core.Optional
-                }] }]; }, null);
-
-    var ParserInitializer = /** @class */ (function () {
+    if (false) {
         /**
-         * CTOR
-         * @param injector
+         * @type {?}
+         * @private
          */
+        LocalizeRouterConfigLoader.prototype.localize;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var ParserInitializer = /** @class */ (function () {
         function ParserInitializer(injector) {
             this.injector = injector;
         }
         /**
-         * @returns {Promise<any>}
+         * @return {?}
          */
-        ParserInitializer.prototype.appInitializer = function () {
+        ParserInitializer.prototype.appInitializer = /**
+         * @return {?}
+         */
+        function () {
             var _this = this;
+            /** @type {?} */
             var res = this.parser.load(this.routes);
-            res.then(function () {
+            res.then((/**
+             * @return {?}
+             */
+            function () {
+                /** @type {?} */
                 var localize = _this.injector.get(LocalizeRouterService);
                 localize.init();
-            });
+            }));
             return res;
         };
         /**
-         * @param parser
-         * @param routes
-         * @returns {()=>Promise<any>}
+         * @param {?} parser
+         * @param {?} routes
+         * @return {?}
          */
-        ParserInitializer.prototype.generateInitializer = function (parser, routes) {
+        ParserInitializer.prototype.generateInitializer = /**
+         * @param {?} parser
+         * @param {?} routes
+         * @return {?}
+         */
+        function (parser, routes) {
             this.parser = parser;
-            this.routes = routes.reduce(function (a, b) { return a.concat(b); });
+            this.routes = routes.reduce((/**
+             * @param {?} a
+             * @param {?} b
+             * @return {?}
+             */
+            function (a, b) { return a.concat(b); }));
             return this.appInitializer;
         };
-        /** @nocollapse */ ParserInitializer.ngInjectableDef = core.ɵɵdefineInjectable({ token: ParserInitializer, factory: function ParserInitializer_Factory(t) { return new (t || ParserInitializer)(core.ɵɵinject(core.Injector)); }, providedIn: null });
+        ParserInitializer.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        ParserInitializer.ctorParameters = function () { return [
+            { type: core.Injector }
+        ]; };
         return ParserInitializer;
     }());
-    /*@__PURE__*/ core.ɵsetClassMetadata(ParserInitializer, [{
-            type: core.Injectable
-        }], function () { return [{ type: core.Injector }]; }, null);
+    if (false) {
+        /** @type {?} */
+        ParserInitializer.prototype.parser;
+        /** @type {?} */
+        ParserInitializer.prototype.routes;
+        /**
+         * @type {?}
+         * @private
+         */
+        ParserInitializer.prototype.injector;
+    }
     /**
-     * @param p
-     * @param parser
-     * @param routes
-     * @returns {any}
+     * @param {?} p
+     * @param {?} parser
+     * @param {?} routes
+     * @return {?}
      */
     function getAppInitializer(p, parser, routes) {
         return p.generateInitializer(parser, routes).bind(p);
@@ -1077,7 +1491,17 @@
     var LocalizeRouterModule = /** @class */ (function () {
         function LocalizeRouterModule() {
         }
-        LocalizeRouterModule.forRoot = function (routes, config) {
+        /**
+         * @param {?} routes
+         * @param {?=} config
+         * @return {?}
+         */
+        LocalizeRouterModule.forRoot = /**
+         * @param {?} routes
+         * @param {?=} config
+         * @return {?}
+         */
+        function (routes, config) {
             if (config === void 0) { config = {}; }
             return {
                 ngModule: LocalizeRouterModule,
@@ -1111,7 +1535,15 @@
                 ]
             };
         };
-        LocalizeRouterModule.forChild = function (routes) {
+        /**
+         * @param {?} routes
+         * @return {?}
+         */
+        LocalizeRouterModule.forChild = /**
+         * @param {?} routes
+         * @return {?}
+         */
+        function (routes) {
             return {
                 ngModule: LocalizeRouterModule,
                 providers: [
@@ -1123,22 +1555,18 @@
                 ]
             };
         };
-        /** @nocollapse */ LocalizeRouterModule.ngModuleDef = core.ɵɵdefineNgModule({ type: LocalizeRouterModule });
-        /** @nocollapse */ LocalizeRouterModule.ngInjectorDef = core.ɵɵdefineInjector({ factory: function LocalizeRouterModule_Factory(t) { return new (t || LocalizeRouterModule)(); }, imports: [[common.CommonModule, router.RouterModule, core$1.TranslateModule]] });
+        LocalizeRouterModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [common.CommonModule, router.RouterModule, core$1.TranslateModule],
+                        declarations: [LocalizeRouterPipe],
+                        exports: [LocalizeRouterPipe]
+                    },] }
+        ];
         return LocalizeRouterModule;
     }());
-    /*@__PURE__*/ core.ɵɵsetNgModuleScope(LocalizeRouterModule, { declarations: [LocalizeRouterPipe], imports: [common.CommonModule, router.RouterModule, core$1.TranslateModule], exports: [LocalizeRouterPipe] });
-    /*@__PURE__*/ core.ɵsetClassMetadata(LocalizeRouterModule, [{
-            type: core.NgModule,
-            args: [{
-                    imports: [common.CommonModule, router.RouterModule, core$1.TranslateModule],
-                    declarations: [LocalizeRouterPipe],
-                    exports: [LocalizeRouterPipe]
-                }]
-        }], null, null);
     /**
-     * @param localizeRouterModule
-     * @returns {string}
+     * @param {?} localizeRouterModule
+     * @return {?}
      */
     function provideForRootGuard(localizeRouterModule) {
         if (localizeRouterModule) {
@@ -1150,6 +1578,7 @@
     exports.ALWAYS_SET_PREFIX = ALWAYS_SET_PREFIX;
     exports.CACHE_MECHANISM = CACHE_MECHANISM;
     exports.CACHE_NAME = CACHE_NAME;
+    exports.CacheMechanismEnum = CacheMechanismEnum;
     exports.DEFAULT_LANG_FUNCTION = DEFAULT_LANG_FUNCTION;
     exports.DummyLocalizeParser = DummyLocalizeParser;
     exports.LOCALIZE_ROUTER_FORROOT_GUARD = LOCALIZE_ROUTER_FORROOT_GUARD;

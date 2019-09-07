@@ -1,65 +1,66 @@
-import { InjectionToken, ɵɵdefineInjectable, ɵɵinject, ɵsetClassMetadata, Injectable, Inject, ɵɵdefinePipe, ɵɵdirectiveInject, ɵɵinjectPipeChangeDetectorRef, Pipe, ChangeDetectorRef, SystemJsNgModuleLoader, forwardRef, Compiler, SystemJsNgModuleLoaderConfig, Optional, Injector, SkipSelf, NgModuleFactoryLoader, APP_INITIALIZER, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
+import { InjectionToken, Injectable, Inject, Pipe, ChangeDetectorRef, SystemJsNgModuleLoader, forwardRef, Compiler, SystemJsNgModuleLoaderConfig, Optional, Injector, SkipSelf, NgModuleFactoryLoader, APP_INITIALIZER, NgModule } from '@angular/core';
 import { NavigationStart, PRIMARY_OUTLET, Router, ROUTES, RouterModule } from '@angular/router';
 import { Subject } from 'rxjs';
 import { map, filter, pairwise, tap } from 'rxjs/operators';
-import { __decorate, __param, __metadata } from 'tslib';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { Location, CommonModule } from '@angular/common';
 
 /**
- * Guard to make sure we have single initialization of forRoot
- * @type {InjectionToken<LocalizeRouterModule>}
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/** @type {?} */
 const LOCALIZE_ROUTER_FORROOT_GUARD = new InjectionToken('LOCALIZE_ROUTER_FORROOT_GUARD');
-/**
- * Static provider for keeping track of routes
- * @type {InjectionToken<Routes[]>}
- */
+/** @type {?} */
 const RAW_ROUTES = new InjectionToken('RAW_ROUTES');
+/** @enum {string} */
+const CacheMechanismEnum = {
+    LocalStorage: 'LocalStorage',
+    Cookie: 'Cookie',
+};
 /**
  * Namespace for fail proof access of CacheMechanism
- */
-var CacheMechanism;
-(function (CacheMechanism) {
-    CacheMechanism.LocalStorage = 'LocalStorage';
-    CacheMechanism.Cookie = 'Cookie';
-})(CacheMechanism || (CacheMechanism = {}));
-/**
- * Boolean to indicate whether to use cached language value
- * @type {InjectionToken<boolean>}
+ * @type {?}
  */
 const USE_CACHED_LANG = new InjectionToken('USE_CACHED_LANG');
-/**
- * Cache mechanism type
- * @type {InjectionToken<CacheMechanism>}
- */
+/** @type {?} */
 const CACHE_MECHANISM = new InjectionToken('CACHE_MECHANISM');
-/**
- * Cache name
- * @type {InjectionToken<string>}
- */
+/** @type {?} */
 const CACHE_NAME = new InjectionToken('CACHE_NAME');
-/**
- * Function for calculating default language
- * @type {InjectionToken<DefaultLanguageFunction>}
- */
+/** @type {?} */
 const DEFAULT_LANG_FUNCTION = new InjectionToken('DEFAULT_LANG_FUNCTION');
-/**
- * Boolean to indicate whether prefix should be set for single language scenarios
- * @type {InjectionToken<boolean>}
- */
+/** @type {?} */
 const ALWAYS_SET_PREFIX = new InjectionToken('ALWAYS_SET_PREFIX');
+/**
+ * Config interface for LocalizeRouter
+ * @record
+ */
+function LocalizeRouterConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    LocalizeRouterConfig.prototype.parser;
+    /** @type {?|undefined} */
+    LocalizeRouterConfig.prototype.useCachedLang;
+    /** @type {?|undefined} */
+    LocalizeRouterConfig.prototype.cacheMechanism;
+    /** @type {?|undefined} */
+    LocalizeRouterConfig.prototype.cacheName;
+    /** @type {?|undefined} */
+    LocalizeRouterConfig.prototype.defaultLangFunction;
+    /** @type {?|undefined} */
+    LocalizeRouterConfig.prototype.alwaysSetPrefix;
+}
+/** @type {?} */
 const LOCALIZE_CACHE_NAME = 'LOCALIZE_DEFAULT_LANGUAGE';
 class LocalizeRouterSettings {
     /**
-     * Settings for localize router
-     * @param {boolean} useCachedLang
-     * @param {boolean} alwaysSetPrefix
-     * @param {CacheMechanism} cacheMechanism
-     * @param {string} cacheName
-     * @param {DefaultLanguageFunction} defaultLangFunction
+     * @param {?=} useCachedLang
+     * @param {?=} alwaysSetPrefix
+     * @param {?=} cacheMechanism
+     * @param {?=} cacheName
+     * @param {?=} defaultLangFunction
      */
-    constructor(useCachedLang = true, alwaysSetPrefix = true, cacheMechanism = CacheMechanism.LocalStorage, cacheName = LOCALIZE_CACHE_NAME, defaultLangFunction = void 0) {
+    constructor(useCachedLang = true, alwaysSetPrefix = true, cacheMechanism = CacheMechanismEnum.LocalStorage, cacheName = LOCALIZE_CACHE_NAME, defaultLangFunction = void 0) {
         this.useCachedLang = useCachedLang;
         this.alwaysSetPrefix = alwaysSetPrefix;
         this.cacheMechanism = cacheMechanism;
@@ -67,36 +68,46 @@ class LocalizeRouterSettings {
         this.defaultLangFunction = defaultLangFunction;
     }
 }
-/** @nocollapse */ LocalizeRouterSettings.ngInjectableDef = ɵɵdefineInjectable({ token: LocalizeRouterSettings, factory: function LocalizeRouterSettings_Factory(t) { return new (t || LocalizeRouterSettings)(ɵɵinject(USE_CACHED_LANG), ɵɵinject(ALWAYS_SET_PREFIX), ɵɵinject(CACHE_MECHANISM), ɵɵinject(CACHE_NAME), ɵɵinject(DEFAULT_LANG_FUNCTION)); }, providedIn: null });
-/*@__PURE__*/ ɵsetClassMetadata(LocalizeRouterSettings, [{
-        type: Injectable
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [USE_CACHED_LANG]
-            }] }, { type: undefined, decorators: [{
-                type: Inject,
-                args: [ALWAYS_SET_PREFIX]
-            }] }, { type: CacheMechanism, decorators: [{
-                type: Inject,
-                args: [CACHE_MECHANISM]
-            }] }, { type: undefined, decorators: [{
-                type: Inject,
-                args: [CACHE_NAME]
-            }] }, { type: undefined, decorators: [{
-                type: Inject,
-                args: [DEFAULT_LANG_FUNCTION]
-            }] }]; }, null);
+LocalizeRouterSettings.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+LocalizeRouterSettings.ctorParameters = () => [
+    { type: Boolean, decorators: [{ type: Inject, args: [USE_CACHED_LANG,] }] },
+    { type: Boolean, decorators: [{ type: Inject, args: [ALWAYS_SET_PREFIX,] }] },
+    { type: undefined, decorators: [{ type: Inject, args: [CACHE_MECHANISM,] }] },
+    { type: String, decorators: [{ type: Inject, args: [CACHE_NAME,] }] },
+    { type: undefined, decorators: [{ type: Inject, args: [DEFAULT_LANG_FUNCTION,] }] }
+];
+if (false) {
+    /** @type {?} */
+    LocalizeRouterSettings.prototype.useCachedLang;
+    /** @type {?} */
+    LocalizeRouterSettings.prototype.alwaysSetPrefix;
+    /** @type {?} */
+    LocalizeRouterSettings.prototype.cacheMechanism;
+    /** @type {?} */
+    LocalizeRouterSettings.prototype.cacheName;
+    /** @type {?} */
+    LocalizeRouterSettings.prototype.defaultLangFunction;
+}
 
-const COOKIE_EXPIRY = 30; // 1 month
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const COOKIE_EXPIRY = 30;
+// 1 month
 /**
  * Abstract class for parsing localization
+ * @abstract
  */
-let LocalizeParser = class LocalizeParser {
+class LocalizeParser {
     /**
-     * Loader constructor
-     * @param translate
-     * @param location
-     * @param settings
+     * @param {?} translate
+     * @param {?} location
+     * @param {?} settings
      */
     constructor(translate, location, settings) {
         this.translate = translate;
@@ -104,17 +115,21 @@ let LocalizeParser = class LocalizeParser {
         this.settings = settings;
     }
     /**
-     * Initialize language and routes
-     * @param routes
-     * @returns {Promise<any>}
+     * @protected
+     * @param {?} routes
+     * @return {?}
      */
     init(routes) {
         this.routes = routes;
         if (!this.locales || !this.locales.length) {
             return Promise.resolve();
         }
-        /** detect current language */
+        /**
+         * detect current language
+         * @type {?}
+         */
         const locationLang = this.getLocationLang();
+        /** @type {?} */
         const browserLang = this._getBrowserLang();
         if (this.settings.defaultLangFunction) {
             this.defaultLang = this.settings.defaultLangFunction(this.locales, this._cachedLang, browserLang);
@@ -122,14 +137,24 @@ let LocalizeParser = class LocalizeParser {
         else {
             this.defaultLang = this._cachedLang || browserLang || this.locales[0];
         }
+        /** @type {?} */
         const selectedLanguage = locationLang || this.defaultLang;
         this.translate.setDefaultLang(this.defaultLang);
+        /** @type {?} */
         let children = [];
         /** if set prefix is enforced */
         if (this.settings.alwaysSetPrefix) {
+            /** @type {?} */
             const baseRoute = { path: '', redirectTo: this.defaultLang, pathMatch: 'full' };
-            /** extract potential wildcard route */
-            const wildcardIndex = routes.findIndex((route) => route.path === '**');
+            /**
+             * extract potential wildcard route
+             * @type {?}
+             */
+            const wildcardIndex = routes.findIndex((/**
+             * @param {?} route
+             * @return {?}
+             */
+            (route) => route.path === '**'));
             if (wildcardIndex !== -1) {
                 this._wildcardRoute = routes.splice(wildcardIndex, 1)[0];
             }
@@ -162,29 +187,49 @@ let LocalizeParser = class LocalizeParser {
         /** translate routes */
         return this.translateRoutes(selectedLanguage).toPromise();
     }
+    /**
+     * @param {?} routes
+     * @return {?}
+     */
     initChildRoutes(routes) {
         this._translateRouteTree(routes);
         return routes;
     }
+    /**
+     * @param {?} currentLanguage
+     * @param {?} previousLanguage
+     * @param {?} routes
+     * @return {?}
+     */
     mutateRouterRootRoute(currentLanguage, previousLanguage, routes) {
+        /** @type {?} */
         const previousTranslatedLanguage = this.settings.alwaysSetPrefix || previousLanguage !== this.defaultLang ?
             previousLanguage : '';
+        /** @type {?} */
         const currentTranslatedLanguage = this.settings.alwaysSetPrefix || currentLanguage !== this.defaultLang ?
             currentLanguage : '';
-        const baseRoute = routes.find(route => route.path === previousTranslatedLanguage);
+        /** @type {?} */
+        const baseRoute = routes.find((/**
+         * @param {?} route
+         * @return {?}
+         */
+        route => route.path === previousTranslatedLanguage));
         if (baseRoute) {
             baseRoute.path = currentTranslatedLanguage;
         }
     }
     /**
-     * Translate routes to selected language
-     * @param language
-     * @returns {Promise<any>}
+     * @param {?} language
+     * @return {?}
      */
     translateRoutes(language) {
         this.setRootLanguage(language);
         return this.translate.use(language)
-            .pipe(map(translations => {
+            .pipe(map((/**
+         * @param {?} translations
+         * @return {?}
+         */
+        translations => {
             this._translationObject = translations;
             this.currentLang = language;
             if (this._languageRoute) {
@@ -197,8 +242,13 @@ let LocalizeParser = class LocalizeParser {
             else {
                 this._translateRouteTree(this.routes);
             }
-        }));
+        })));
     }
+    /**
+     * @private
+     * @param {?} language
+     * @return {?}
+     */
     setRootLanguage(language) {
         this._cachedLang = language;
         if (this._languageRoute) {
@@ -207,12 +257,16 @@ let LocalizeParser = class LocalizeParser {
         }
     }
     /**
-     * Translate the route node and recursively call for all it's children
-     * @param routes
      * @private
+     * @param {?} routes
+     * @return {?}
      */
     _translateRouteTree(routes) {
-        routes.forEach((route) => {
+        routes.forEach((/**
+         * @param {?} route
+         * @return {?}
+         */
+        (route) => {
             if (route.path && route.path !== '**') {
                 this._translateProperty(route, 'path');
             }
@@ -222,57 +276,66 @@ let LocalizeParser = class LocalizeParser {
             if (route.children) {
                 this._translateRouteTree(route.children);
             }
-            if (route.loadChildren && route._loadedConfig) {
-                this._translateRouteTree(route._loadedConfig.routes);
+            if (route.loadChildren && ((/** @type {?} */ (route)))._loadedConfig) {
+                this._translateRouteTree(((/** @type {?} */ (route)))._loadedConfig.routes);
             }
-        });
+        }));
     }
     /**
-     * Translate property
-     * If first time translation then add original to route data object
-     * @param route
-     * @param property
-     * @param prefixLang
      * @private
+     * @param {?} route
+     * @param {?} property
+     * @param {?=} prefixLang
+     * @return {?}
      */
     _translateProperty(route, property, prefixLang) {
         // set property to data if not there yet
+        /** @type {?} */
         const routeData = route.data = route.data || {};
         if (!routeData.localizeRouter) {
             routeData.localizeRouter = {};
         }
         if (!routeData.localizeRouter[property]) {
-            routeData.localizeRouter[property] = route[property];
+            routeData.localizeRouter[property] = ((/** @type {?} */ (route)))[property];
         }
+        /** @type {?} */
         const result = this.translateRoute(routeData.localizeRouter[property]);
-        route[property] = prefixLang ? `/${this.urlPrefix}${result}` : result;
+        ((/** @type {?} */ (route)))[property] = prefixLang ? `/${this.urlPrefix}${result}` : result;
     }
+    /**
+     * @return {?}
+     */
     get urlPrefix() {
         return this.settings.alwaysSetPrefix || this.currentLang !== this.defaultLang ? this.currentLang : '';
     }
     /**
-     * Translate route and return observable
-     * @param path
-     * @returns {string}
+     * @param {?} path
+     * @return {?}
      */
     translateRoute(path) {
+        /** @type {?} */
         const queryParts = path.split('?');
         if (queryParts.length > 2) {
             throw 'There should be only one query parameter block in the URL';
         }
+        /** @type {?} */
         const pathSegments = queryParts[0].split('/');
         /** collect observables  */
         return pathSegments
-            .map((part) => part.length ? this.translateText(part) : part)
+            .map((/**
+         * @param {?} part
+         * @return {?}
+         */
+        (part) => part.length ? this.translateText(part) : part))
             .join('/') +
             (queryParts.length > 1 ? `?${queryParts[1]}` : '');
     }
     /**
-     * Get language from url
-     * @returns {string}
-     * @private
+     * @param {?=} url
+     * @return {?}
      */
     getLocationLang(url) {
+        /** @type {?} */
         const pathSlices = (url || this.location.path() || '')
             .split('#')[0]
             .split('?')[0]
@@ -286,50 +349,47 @@ let LocalizeParser = class LocalizeParser {
         return null;
     }
     /**
-     * Get user's language set in the browser
-     * @returns {string}
      * @private
+     * @return {?}
      */
     _getBrowserLang() {
         return this._returnIfInLocales(this.translate.getBrowserLang());
     }
     /**
-     * Get language from local storage or cookie
-     * @returns {string}
      * @private
+     * @return {?}
      */
     get _cachedLang() {
         if (!this.settings.useCachedLang) {
             return;
         }
-        if (this.settings.cacheMechanism === CacheMechanism.LocalStorage) {
+        if (this.settings.cacheMechanism === CacheMechanismEnum.LocalStorage) {
             return this._cacheWithLocalStorage();
         }
-        if (this.settings.cacheMechanism === CacheMechanism.Cookie) {
+        if (this.settings.cacheMechanism === CacheMechanismEnum.Cookie) {
             return this._cacheWithCookies();
         }
     }
     /**
-     * Save language to local storage or cookie
-     * @param value
      * @private
+     * @param {?} value
+     * @return {?}
      */
     set _cachedLang(value) {
         if (!this.settings.useCachedLang) {
             return;
         }
-        if (this.settings.cacheMechanism === CacheMechanism.LocalStorage) {
+        if (this.settings.cacheMechanism === CacheMechanismEnum.LocalStorage) {
             this._cacheWithLocalStorage(value);
         }
-        if (this.settings.cacheMechanism === CacheMechanism.Cookie) {
+        if (this.settings.cacheMechanism === CacheMechanismEnum.Cookie) {
             this._cacheWithCookies(value);
         }
     }
     /**
-     * Cache value to local storage
-     * @param value
-     * @returns {string}
      * @private
+     * @param {?=} value
+     * @return {?}
      */
     _cacheWithLocalStorage(value) {
         if (typeof window === 'undefined' || typeof window.localStorage === 'undefined') {
@@ -348,23 +408,27 @@ let LocalizeParser = class LocalizeParser {
         }
     }
     /**
-     * Cache value via cookies
-     * @param value
      * @private
+     * @param {?=} value
+     * @return {?}
      */
     _cacheWithCookies(value) {
         if (typeof document === 'undefined' || typeof document.cookie === 'undefined') {
             return;
         }
         try {
+            /** @type {?} */
             const name = encodeURIComponent(this.settings.cacheName);
             if (value) {
+                /** @type {?} */
                 const d = new Date();
                 d.setTime(d.getTime() + COOKIE_EXPIRY * 86400000); // * days
                 document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()}`;
                 return;
             }
+            /** @type {?} */
             const regexp = new RegExp('(?:^' + name + '|;\\s*' + name + ')=(.*?)(?:;|$)', 'g');
+            /** @type {?} */
             const result = regexp.exec(document.cookie);
             return decodeURIComponent(result[1]);
         }
@@ -373,10 +437,9 @@ let LocalizeParser = class LocalizeParser {
         }
     }
     /**
-     * Check if value exists in locales list
-     * @param value
-     * @returns {any}
      * @private
+     * @param {?} value
+     * @return {?}
      */
     _returnIfInLocales(value) {
         if (value && this.locales.indexOf(value) !== -1) {
@@ -385,15 +448,17 @@ let LocalizeParser = class LocalizeParser {
         return null;
     }
     /**
-     * Get translated value
-     * @param key
-     * @returns {any}
+     * @private
+     * @param {?} key
+     * @return {?}
      */
     translateText(key) {
         if (!this._translationObject) {
             return key;
         }
+        /** @type {?} */
         const prefixedKey = this.prefix + key;
+        /** @type {?} */
         const res = this.translate.getParsedResult(this._translationObject, prefixedKey);
         // ignore non-translated text like 'ROUTES.home'
         if (res === prefixedKey) {
@@ -401,26 +466,74 @@ let LocalizeParser = class LocalizeParser {
         }
         return res || key;
     }
-};
-LocalizeParser = __decorate([
-    __param(0, Inject(TranslateService)),
-    __param(1, Inject(Location)),
-    __param(2, Inject(LocalizeRouterSettings)),
-    __metadata("design:paramtypes", [TranslateService,
-        Location,
-        LocalizeRouterSettings])
-], LocalizeParser);
+}
+/** @nocollapse */
+LocalizeParser.ctorParameters = () => [
+    { type: TranslateService, decorators: [{ type: Inject, args: [TranslateService,] }] },
+    { type: Location, decorators: [{ type: Inject, args: [Location,] }] },
+    { type: LocalizeRouterSettings, decorators: [{ type: Inject, args: [LocalizeRouterSettings,] }] }
+];
+if (false) {
+    /** @type {?} */
+    LocalizeParser.prototype.locales;
+    /** @type {?} */
+    LocalizeParser.prototype.currentLang;
+    /** @type {?} */
+    LocalizeParser.prototype.routes;
+    /** @type {?} */
+    LocalizeParser.prototype.defaultLang;
+    /**
+     * @type {?}
+     * @protected
+     */
+    LocalizeParser.prototype.prefix;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeParser.prototype._translationObject;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeParser.prototype._wildcardRoute;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeParser.prototype._languageRoute;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeParser.prototype.translate;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeParser.prototype.location;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeParser.prototype.settings;
+    /**
+     * @abstract
+     * @param {?} routes
+     * @return {?}
+     */
+    LocalizeParser.prototype.load = function (routes) { };
+}
 /**
  * Manually set configuration
  */
 class ManualParserLoader extends LocalizeParser {
     /**
-     * CTOR
-     * @param translate
-     * @param location
-     * @param settings
-     * @param locales
-     * @param prefix
+     * @param {?} translate
+     * @param {?} location
+     * @param {?} settings
+     * @param {?=} locales
+     * @param {?=} prefix
      */
     constructor(translate, location, settings, locales = ['en'], prefix = 'ROUTES.') {
         super(translate, location, settings);
@@ -428,34 +541,48 @@ class ManualParserLoader extends LocalizeParser {
         this.prefix = prefix || '';
     }
     /**
-     * Initialize or append routes
-     * @param routes
-     * @returns {Promise<any>}
+     * @param {?} routes
+     * @return {?}
      */
     load(routes) {
-        return new Promise((resolve) => {
+        return new Promise((/**
+         * @param {?} resolve
+         * @return {?}
+         */
+        (resolve) => {
             this.init(routes).then(resolve);
-        });
+        }));
     }
 }
 class DummyLocalizeParser extends LocalizeParser {
+    /**
+     * @param {?} routes
+     * @return {?}
+     */
     load(routes) {
-        return new Promise((resolve) => {
+        return new Promise((/**
+         * @param {?} resolve
+         * @return {?}
+         */
+        (resolve) => {
             this.init(routes).then(resolve);
-        });
+        }));
     }
 }
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /**
  * Localization service
  * modifyRoutes
  */
 class LocalizeRouterService {
     /**
-     * CTOR
-     * @param parser
-     * @param settings
-     * @param router
+     * @param {?} parser
+     * @param {?} settings
+     * @param {?} router
      */
     constructor(parser, settings, router) {
         this.parser = parser;
@@ -465,41 +592,60 @@ class LocalizeRouterService {
     }
     /**
      * Start up the service
+     * @return {?}
      */
     init() {
         this.router.resetConfig(this.parser.routes);
         // subscribe to router events
         this.router.events
-            .pipe(filter((event) => event instanceof NavigationStart), pairwise())
+            .pipe(filter((/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => event instanceof NavigationStart)), pairwise())
             .subscribe(this._routeChanged());
     }
     /**
-     * Change language and navigate to translated route
-     * @param lang
+     * @param {?} lang
+     * @return {?}
      */
     changeLanguage(lang) {
         if (lang !== this.parser.currentLang) {
+            /** @type {?} */
             const rootSnapshot = this.router.routerState.snapshot.root;
             this.parser
                 .translateRoutes(lang)
                 .pipe(
             // set new routes to router
-            tap(() => this.router.resetConfig(this.parser.routes)))
-                .subscribe(() => {
-                const urlSegments = this.traverseSnapshot(rootSnapshot, true).filter((path, i) => {
+            tap((/**
+             * @return {?}
+             */
+            () => this.router.resetConfig(this.parser.routes))))
+                .subscribe((/**
+             * @return {?}
+             */
+            () => {
+                /** @type {?} */
+                const urlSegments = this.traverseSnapshot(rootSnapshot, true).filter((/**
+                 * @param {?} path
+                 * @param {?} i
+                 * @return {?}
+                 */
+                (path, i) => {
                     return !i || path; // filter out empty paths
-                });
+                }));
+                /** @type {?} */
                 const navigationExtras = Object.assign({}, (rootSnapshot.queryParamMap.keys.length ? { queryParams: rootSnapshot.queryParams } : {}), (rootSnapshot.fragment ? { fragment: rootSnapshot.fragment } : {}));
                 // use navigate to keep extras unchanged
                 this.router.navigate(urlSegments, navigationExtras);
-            });
+            }));
         }
     }
     /**
-     * Traverses through the tree to assemble new translated url
-     * @param snapshot
-     * @param isRoot
-     * @returns {string}
+     * @private
+     * @param {?} snapshot
+     * @param {?=} isRoot
+     * @return {?}
      */
     traverseSnapshot(snapshot, isRoot = false) {
         if (isRoot) {
@@ -513,12 +659,29 @@ class LocalizeRouterService {
                 return [...this.traverseSnapshot(snapshot.firstChild.firstChild)];
             }
         }
+        /** @type {?} */
         const urlPart = this.parseSegmentValue(snapshot);
-        const outletChildren = snapshot.children.filter((child) => child.outlet !== PRIMARY_OUTLET);
-        const outlets = outletChildren.reduce((acc, cur) => ({
+        /** @type {?} */
+        const outletChildren = snapshot.children.filter((/**
+         * @param {?} child
+         * @return {?}
+         */
+        (child) => child.outlet !== PRIMARY_OUTLET));
+        /** @type {?} */
+        const outlets = outletChildren.reduce((/**
+         * @param {?} acc
+         * @param {?} cur
+         * @return {?}
+         */
+        (acc, cur) => ({
             outlets: Object.assign({}, acc.outlets, { [cur.outlet]: this.parseSegmentValue(cur) })
-        }), { outlets: {} });
-        const primaryChild = snapshot.children.find((child) => child.outlet === PRIMARY_OUTLET);
+        })), { outlets: {} });
+        /** @type {?} */
+        const primaryChild = snapshot.children.find((/**
+         * @param {?} child
+         * @return {?}
+         */
+        (child) => child.outlet === PRIMARY_OUTLET));
         return [
             urlPart,
             ...(Object.keys(snapshot.params).length ? [snapshot.params] : []),
@@ -527,32 +690,44 @@ class LocalizeRouterService {
         ];
     }
     /**
-     * Extracts new segment value based on routeConfig and url
-     * @param snapshot
-     * @returns {string}
+     * @private
+     * @param {?} snapshot
+     * @return {?}
      */
     parseSegmentValue(snapshot) {
         if (snapshot.routeConfig) {
             if (snapshot.routeConfig.path === '**') {
                 return this.parser.translateRoute(snapshot.url
-                    .filter((segment) => segment.path)
-                    .map((segment) => segment.path)
+                    .filter((/**
+                 * @param {?} segment
+                 * @return {?}
+                 */
+                (segment) => segment.path))
+                    .map((/**
+                 * @param {?} segment
+                 * @return {?}
+                 */
+                (segment) => segment.path))
                     .join('/'));
             }
             else if (snapshot.routeConfig.data) {
+                /** @type {?} */
                 const subPathSegments = snapshot.routeConfig.data.localizeRouter.path.split('/');
                 return subPathSegments
-                    .map((s, i) => (s.indexOf(':') === 0 ? snapshot.url[i].path : this.parser.translateRoute(s)))
+                    .map((/**
+                 * @param {?} s
+                 * @param {?} i
+                 * @return {?}
+                 */
+                (s, i) => (s.indexOf(':') === 0 ? snapshot.url[i].path : this.parser.translateRoute(s))))
                     .join('/');
             }
         }
         return '';
     }
     /**
-     * Translate route to current language
-     * If new language is explicitly provided then replace language part in url with new language
-     * @param path
-     * @returns {string | any[]}
+     * @param {?} path
+     * @return {?}
      */
     translateRoute(path) {
         // path is null (e.g. resetting auxiliary outlet)
@@ -560,13 +735,21 @@ class LocalizeRouterService {
             return path;
         }
         if (typeof path === 'string') {
+            /** @type {?} */
             const url = this.parser.translateRoute(path);
             return !path.indexOf('/') ? `/${this.parser.urlPrefix}${url}` : url;
         }
         // it's an array
+        /** @type {?} */
         let result = [];
-        path.forEach((segment, index) => {
+        ((/** @type {?} */ (path))).forEach((/**
+         * @param {?} segment
+         * @param {?} index
+         * @return {?}
+         */
+        (segment, index) => {
             if (typeof segment === 'string') {
+                /** @type {?} */
                 const res = this.parser.translateRoute(segment);
                 if (!index && !segment.indexOf('/')) {
                     result.push(`/${this.parser.urlPrefix}${res}`);
@@ -578,6 +761,7 @@ class LocalizeRouterService {
             else {
                 // translate router outlets block
                 if (segment && segment.outlets) {
+                    /** @type {?} */
                     let outlets = {};
                     for (let key in segment.outlets) {
                         if (segment.outlets.hasOwnProperty(key)) {
@@ -590,17 +774,22 @@ class LocalizeRouterService {
                     result.push(segment);
                 }
             }
-        });
+        }));
         return result;
     }
     /**
-     * Event handler to react on route change
-     * @returns {(event:any)=>void}
      * @private
+     * @return {?}
      */
     _routeChanged() {
-        return ([previousEvent, currentEvent]) => {
+        return (/**
+         * @param {?} __0
+         * @return {?}
+         */
+        ([previousEvent, currentEvent]) => {
+            /** @type {?} */
             const previousLang = this.parser.getLocationLang(previousEvent.url) || this.parser.defaultLang;
+            /** @type {?} */
             const currentLang = this.parser.getLocationLang(currentEvent.url) || this.parser.defaultLang;
             if (currentLang !== previousLang) {
                 // mutate router config directly to avoid getting out of sync
@@ -609,34 +798,52 @@ class LocalizeRouterService {
                     .translateRoutes(currentLang)
                     .pipe(
                 // reset routes again once they are all translated
-                tap(() => this.router.resetConfig(this.parser.routes)))
-                    .subscribe(() => {
+                tap((/**
+                 * @return {?}
+                 */
+                () => this.router.resetConfig(this.parser.routes))))
+                    .subscribe((/**
+                 * @return {?}
+                 */
+                () => {
                     // Fire route change event
                     this.routerEvents.next(currentLang);
-                });
+                }));
             }
-        };
+        });
     }
 }
-/** @nocollapse */ LocalizeRouterService.ngInjectableDef = ɵɵdefineInjectable({ token: LocalizeRouterService, factory: function LocalizeRouterService_Factory(t) { return new (t || LocalizeRouterService)(ɵɵinject(LocalizeParser), ɵɵinject(LocalizeRouterSettings), ɵɵinject(Router)); }, providedIn: null });
-/*@__PURE__*/ ɵsetClassMetadata(LocalizeRouterService, [{
-        type: Injectable
-    }], function () { return [{ type: LocalizeParser, decorators: [{
-                type: Inject,
-                args: [LocalizeParser]
-            }] }, { type: LocalizeRouterSettings, decorators: [{
-                type: Inject,
-                args: [LocalizeRouterSettings]
-            }] }, { type: Router, decorators: [{
-                type: Inject,
-                args: [Router]
-            }] }]; }, null);
+LocalizeRouterService.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+LocalizeRouterService.ctorParameters = () => [
+    { type: LocalizeParser, decorators: [{ type: Inject, args: [LocalizeParser,] }] },
+    { type: LocalizeRouterSettings, decorators: [{ type: Inject, args: [LocalizeRouterSettings,] }] },
+    { type: Router, decorators: [{ type: Inject, args: [Router,] }] }
+];
+if (false) {
+    /** @type {?} */
+    LocalizeRouterService.prototype.routerEvents;
+    /** @type {?} */
+    LocalizeRouterService.prototype.parser;
+    /** @type {?} */
+    LocalizeRouterService.prototype.settings;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterService.prototype.router;
+}
 
 /**
- * Compare if two objects are same
- * @param o1
- * @param o2
- * @returns {boolean}
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} o1
+ * @param {?} o2
+ * @return {?}
  */
 function equals(o1, o2) {
     if (o1 === o2) {
@@ -648,7 +855,16 @@ function equals(o1, o2) {
     if (o1 !== o1 && o2 !== o2) {
         return true; // NaN === NaN
     }
-    let t1 = typeof o1, t2 = typeof o2, length, key, keySet;
+    /** @type {?} */
+    let t1 = typeof o1;
+    /** @type {?} */
+    let t2 = typeof o2;
+    /** @type {?} */
+    let length;
+    /** @type {?} */
+    let key;
+    /** @type {?} */
+    let keySet;
     if (t1 === t2 && t1 === 'object') {
         if (Array.isArray(o1)) {
             if (!Array.isArray(o2)) {
@@ -689,30 +905,39 @@ function equals(o1, o2) {
     return false;
 }
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
 const VIEW_DESTROYED_STATE = 128;
 class LocalizeRouterPipe {
     /**
-     * CTOR
-     * @param localize
-     * @param _ref
+     * @param {?} localize
+     * @param {?} _ref
      */
     constructor(localize, _ref) {
         this.localize = localize;
         this._ref = _ref;
         this.value = '';
-        this.subscription = this.localize.routerEvents.subscribe(() => {
+        this.subscription = this.localize.routerEvents.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.transform(this.lastKey);
-        });
+        }));
     }
+    /**
+     * @return {?}
+     */
     ngOnDestroy() {
         if (this.subscription) {
             this.subscription.unsubscribe();
         }
     }
     /**
-     * Transform current url to localized one
-     * @param query
-     * @returns {string | any[]}
+     * @param {?} query
+     * @return {?}
      */
     transform(query) {
         if (!query || query.length === 0 || !this.localize.parser.currentLang) {
@@ -727,43 +952,102 @@ class LocalizeRouterPipe {
         this.value = this.localize.translateRoute(query);
         this.lastKey = query;
         // if view is already destroyed, ignore firing change detection
-        if (this._ref._view.state & VIEW_DESTROYED_STATE) {
+        if (((/** @type {?} */ (this._ref)))._view.state & VIEW_DESTROYED_STATE) {
             return this.value;
         }
         this._ref.detectChanges();
         return this.value;
     }
 }
-/** @nocollapse */ LocalizeRouterPipe.ngPipeDef = ɵɵdefinePipe({ name: "localize", type: LocalizeRouterPipe, factory: function LocalizeRouterPipe_Factory(t) { return new (t || LocalizeRouterPipe)(ɵɵdirectiveInject(LocalizeRouterService), ɵɵinjectPipeChangeDetectorRef()); }, pure: false });
-/*@__PURE__*/ ɵsetClassMetadata(LocalizeRouterPipe, [{
-        type: Pipe,
-        args: [{
+LocalizeRouterPipe.decorators = [
+    { type: Pipe, args: [{
                 name: 'localize',
                 pure: false // required to update the value when the promise is resolved
-            }]
-    }], function () { return [{ type: LocalizeRouterService }, { type: ChangeDetectorRef }]; }, null);
+            },] }
+];
+/** @nocollapse */
+LocalizeRouterPipe.ctorParameters = () => [
+    { type: LocalizeRouterService },
+    { type: ChangeDetectorRef }
+];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterPipe.prototype.value;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterPipe.prototype.lastKey;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterPipe.prototype.lastLanguage;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterPipe.prototype.subscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterPipe.prototype.localize;
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterPipe.prototype._ref;
+}
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /**
  * Extension of SystemJsNgModuleLoader to enable localization of route on lazy load
  */
 class LocalizeRouterConfigLoader extends SystemJsNgModuleLoader {
+    /**
+     * @param {?} localize
+     * @param {?} _compiler
+     * @param {?=} config
+     */
     constructor(localize, _compiler, config) {
         super(_compiler, config);
         this.localize = localize;
     }
     /**
-     * Extend load with custom functionality
-     * @param {string} path
-     * @returns {Promise<NgModuleFactory<any>>}
+     * @param {?} path
+     * @return {?}
      */
     load(path) {
-        return super.load(path).then((factory) => {
+        return super.load(path).then((/**
+         * @param {?} factory
+         * @return {?}
+         */
+        (factory) => {
             return {
                 moduleType: factory.moduleType,
-                create: (parentInjector) => {
+                create: (/**
+                 * @param {?} parentInjector
+                 * @return {?}
+                 */
+                (parentInjector) => {
+                    /** @type {?} */
                     const module = factory.create(parentInjector);
+                    /** @type {?} */
                     const getMethod = module.injector.get.bind(module.injector);
-                    module.injector['get'] = (token, notFoundValue) => {
+                    module.injector['get'] = (/**
+                     * @param {?} token
+                     * @param {?} notFoundValue
+                     * @return {?}
+                     */
+                    (token, notFoundValue) => {
+                        /** @type {?} */
                         const getResult = getMethod(token, notFoundValue);
                         if (token === ROUTES) {
                             // translate lazy routes
@@ -772,67 +1056,109 @@ class LocalizeRouterConfigLoader extends SystemJsNgModuleLoader {
                         else {
                             return getResult;
                         }
-                    };
+                    });
                     return module;
-                }
+                })
             };
-        });
+        }));
     }
 }
-/** @nocollapse */ LocalizeRouterConfigLoader.ngInjectableDef = ɵɵdefineInjectable({ token: LocalizeRouterConfigLoader, factory: function LocalizeRouterConfigLoader_Factory(t) { return new (t || LocalizeRouterConfigLoader)(ɵɵinject(forwardRef(() => LocalizeParser)), ɵɵinject(Compiler), ɵɵinject(SystemJsNgModuleLoaderConfig, 8)); }, providedIn: null });
-/*@__PURE__*/ ɵsetClassMetadata(LocalizeRouterConfigLoader, [{
-        type: Injectable
-    }], function () { return [{ type: LocalizeParser, decorators: [{
-                type: Inject,
-                args: [forwardRef(() => LocalizeParser)]
-            }] }, { type: Compiler }, { type: SystemJsNgModuleLoaderConfig, decorators: [{
-                type: Optional
-            }] }]; }, null);
+LocalizeRouterConfigLoader.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+LocalizeRouterConfigLoader.ctorParameters = () => [
+    { type: LocalizeParser, decorators: [{ type: Inject, args: [forwardRef((/**
+                     * @return {?}
+                     */
+                    () => LocalizeParser)),] }] },
+    { type: Compiler },
+    { type: SystemJsNgModuleLoaderConfig, decorators: [{ type: Optional }] }
+];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    LocalizeRouterConfigLoader.prototype.localize;
+}
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 class ParserInitializer {
     /**
-     * CTOR
-     * @param injector
+     * @param {?} injector
      */
     constructor(injector) {
         this.injector = injector;
     }
     /**
-     * @returns {Promise<any>}
+     * @return {?}
      */
     appInitializer() {
+        /** @type {?} */
         const res = this.parser.load(this.routes);
-        res.then(() => {
+        res.then((/**
+         * @return {?}
+         */
+        () => {
+            /** @type {?} */
             const localize = this.injector.get(LocalizeRouterService);
             localize.init();
-        });
+        }));
         return res;
     }
     /**
-     * @param parser
-     * @param routes
-     * @returns {()=>Promise<any>}
+     * @param {?} parser
+     * @param {?} routes
+     * @return {?}
      */
     generateInitializer(parser, routes) {
         this.parser = parser;
-        this.routes = routes.reduce((a, b) => a.concat(b));
+        this.routes = routes.reduce((/**
+         * @param {?} a
+         * @param {?} b
+         * @return {?}
+         */
+        (a, b) => a.concat(b)));
         return this.appInitializer;
     }
 }
-/** @nocollapse */ ParserInitializer.ngInjectableDef = ɵɵdefineInjectable({ token: ParserInitializer, factory: function ParserInitializer_Factory(t) { return new (t || ParserInitializer)(ɵɵinject(Injector)); }, providedIn: null });
-/*@__PURE__*/ ɵsetClassMetadata(ParserInitializer, [{
-        type: Injectable
-    }], function () { return [{ type: Injector }]; }, null);
+ParserInitializer.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+ParserInitializer.ctorParameters = () => [
+    { type: Injector }
+];
+if (false) {
+    /** @type {?} */
+    ParserInitializer.prototype.parser;
+    /** @type {?} */
+    ParserInitializer.prototype.routes;
+    /**
+     * @type {?}
+     * @private
+     */
+    ParserInitializer.prototype.injector;
+}
 /**
- * @param p
- * @param parser
- * @param routes
- * @returns {any}
+ * @param {?} p
+ * @param {?} parser
+ * @param {?} routes
+ * @return {?}
  */
 function getAppInitializer(p, parser, routes) {
     return p.generateInitializer(parser, routes).bind(p);
 }
 class LocalizeRouterModule {
+    /**
+     * @param {?} routes
+     * @param {?=} config
+     * @return {?}
+     */
     static forRoot(routes, config = {}) {
         return {
             ngModule: LocalizeRouterModule,
@@ -866,6 +1192,10 @@ class LocalizeRouterModule {
             ]
         };
     }
+    /**
+     * @param {?} routes
+     * @return {?}
+     */
     static forChild(routes) {
         return {
             ngModule: LocalizeRouterModule,
@@ -879,20 +1209,16 @@ class LocalizeRouterModule {
         };
     }
 }
-/** @nocollapse */ LocalizeRouterModule.ngModuleDef = ɵɵdefineNgModule({ type: LocalizeRouterModule });
-/** @nocollapse */ LocalizeRouterModule.ngInjectorDef = ɵɵdefineInjector({ factory: function LocalizeRouterModule_Factory(t) { return new (t || LocalizeRouterModule)(); }, imports: [[CommonModule, RouterModule, TranslateModule]] });
-/*@__PURE__*/ ɵɵsetNgModuleScope(LocalizeRouterModule, { declarations: [LocalizeRouterPipe], imports: [CommonModule, RouterModule, TranslateModule], exports: [LocalizeRouterPipe] });
-/*@__PURE__*/ ɵsetClassMetadata(LocalizeRouterModule, [{
-        type: NgModule,
-        args: [{
+LocalizeRouterModule.decorators = [
+    { type: NgModule, args: [{
                 imports: [CommonModule, RouterModule, TranslateModule],
                 declarations: [LocalizeRouterPipe],
                 exports: [LocalizeRouterPipe]
-            }]
-    }], null, null);
+            },] }
+];
 /**
- * @param localizeRouterModule
- * @returns {string}
+ * @param {?} localizeRouterModule
+ * @return {?}
  */
 function provideForRootGuard(localizeRouterModule) {
     if (localizeRouterModule) {
@@ -902,8 +1228,14 @@ function provideForRootGuard(localizeRouterModule) {
 }
 
 /**
- * Generated bundle index. Do not edit.
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { ALWAYS_SET_PREFIX, CACHE_MECHANISM, CACHE_NAME, CacheMechanism, DEFAULT_LANG_FUNCTION, DummyLocalizeParser, LOCALIZE_ROUTER_FORROOT_GUARD, LocalizeParser, LocalizeRouterConfigLoader, LocalizeRouterModule, LocalizeRouterPipe, LocalizeRouterService, LocalizeRouterSettings, ManualParserLoader, ParserInitializer, RAW_ROUTES, USE_CACHED_LANG, getAppInitializer, provideForRootGuard };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+export { ALWAYS_SET_PREFIX, CACHE_MECHANISM, CACHE_NAME, CacheMechanismEnum, DEFAULT_LANG_FUNCTION, DummyLocalizeParser, LOCALIZE_ROUTER_FORROOT_GUARD, LocalizeParser, LocalizeRouterConfigLoader, LocalizeRouterModule, LocalizeRouterPipe, LocalizeRouterService, LocalizeRouterSettings, ManualParserLoader, ParserInitializer, RAW_ROUTES, USE_CACHED_LANG, getAppInitializer, provideForRootGuard };
 //# sourceMappingURL=localize-router.js.map
