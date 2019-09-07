@@ -1,0 +1,23 @@
+{
+  "name": "localize-router-packaged",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.4",
+    "@angular/core": "^8.2.4"
+  },
+  "main": "bundles/localize-router.umd.js",
+  "module": "fesm5/localize-router.js",
+  "es2015": "fesm2015/localize-router.js",
+  "esm5": "esm5/localize-router.js",
+  "esm2015": "esm2015/localize-router.js",
+  "fesm5": "fesm5/localize-router.js",
+  "fesm2015": "fesm2015/localize-router.js",
+  "typings": "localize-router.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+  }
+}
